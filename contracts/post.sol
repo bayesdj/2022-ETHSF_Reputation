@@ -1,5 +1,3 @@
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
@@ -9,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract Work is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
+contract Post is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     using Counters for Counters.Counter;
 
     enum Status{ UNRATED, GOOD, BAD }
@@ -23,7 +21,7 @@ contract Work is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("Work", "wrk") {}
+    constructor() ERC721("Post", "POST") {}
 
     function safeMint(address to, string memory uri) public onlyOwner {
     // function safeMint(address to) public onlyOwner {

@@ -4,12 +4,12 @@ const hre = require("hardhat")
 
 //NFT SOL
 async function main() {
-  const NFT = await hre.ethers.getContractFactory("NFT")
+  const CRED = await hre.ethers.getContractFactory("Credential")
   console.log("deploying...")
-  const NFTDeployed = await NFT.deploy("NFT", "VAL");
-  console.log("line 10",NFTDeployed.address)
-  await NFTDeployed.deployed();
-  console.log("The latest contract was deployed to Goerli", NFTDeployed.address)
+  const CREDDeployed = await CRED.deploy();
+  console.log("line 10",CREDDeployed.address)
+  await CREDDeployed.deployed();
+  console.log("The latest contract was deployed to Goerli ETH", CREDDeployed.address)
 }
 
 //GENERAL

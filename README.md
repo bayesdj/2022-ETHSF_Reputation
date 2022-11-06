@@ -2,12 +2,16 @@
 
 This project begins with verification of the users' personhood, and then verification of the users' PolygonID.
 
+There are then 2 contracts that are deployed into the system: 
+1. The CRED ERC20 token contract, the native protocol token of Creddit
+2. The ERC721 "Post" contract - which is what creators/publishers mint from when creating a post. Each Post NFT minted is unique, and contains unique IDs and metadata.
 
 ## Installation 
 - Install node (v16.0.0+)
 ### To Run the Worldcoin / Polygon ID UI:
-In the root directory:
-```cd ui/ 
+In the ui directory, start the frontend React server:
+```
+cd ui/ 
 npm install yarn
 yarn build
 yarn install
