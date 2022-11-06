@@ -5,16 +5,23 @@ This project begins with verification of the users' personhood, and then verific
 
 ## Installation 
 - Install node (v16.0.0+)
-- 
 ### To Run the Worldcoin / Polygon ID UI:
-
+In the root directory:
 ```cd ui/ 
 npm install yarn
 yarn build
 yarn install
 yarn start
 ```
-In a NEW terminal window:
+In a NEW terminal window, launch the PolygonID engine:
+```
+cd polyID
+node Verifier.js
+```
+In a NEW terminal window, launch Express API server:
+```
+node app.js
+```
 
 Click on "I'm a unique person". 
 Then, copy the qr code and navigate to the Worldcoin browser simulator:
