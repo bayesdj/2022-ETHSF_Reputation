@@ -35,7 +35,11 @@ When the app asks you to "Verify with World ID", click it and your identity will
 
 You may need to sign out of the simulator and create a new temporary wallet to ensure the cache is cleared out for demo purposes!
 
+Contract Addresses:
+Credential on Goerli, Optimism Goerli, Mumbai, SKALE: 
+0x878a41D7205C61425C8781e226861ddD3d87D12A
 
+Post on Goerli, Optimism Goerli, Mumbai, SKALE:
 
 
 ```shell
