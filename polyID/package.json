@@ -1,0 +1,14 @@
+{
+  "name": "identityVerificationServer",
+  "version": "1.0.0",
+  "main": "Verifier.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@iden3/js-iden3-auth": "^0.1.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.5.2",
+    "tslib": "^2.4.0"
+  }
+}
