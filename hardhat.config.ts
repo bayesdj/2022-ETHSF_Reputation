@@ -16,12 +16,20 @@ const config: HardhatUserConfig = {
       url: process.env.JAVELIN_GOERLI,
       accounts: [process.env.PRIVATE_KEY]
     },
-    // optimism-goerli: {
-    //   url: process.env.OP_GOERLI,
-    //   accounts: [process.env.PRIVATE_KEY]
-    // },
+    'optimism-goerli': {
+      url: process.env.OP_GOERLI,
+      accounts: [process.env.PRIVATE_KEY]
+    },
+    'matic': {
+      url: process.env.MUMBAI,
+      accounts: [process.env.PRIVATE_KEY]
+    },
+    'skale': {
+      url: process.env.SKALE2,
+      accounts: [process.env.PRIVATE_KEY]
+    },
   },
-  etherscan: {
+  'etherscan': {
     apiKey: process.env.ETHERSCAN_API_KEY
   }
 };

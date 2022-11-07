@@ -3,13 +3,22 @@ import { ethers } from "hardhat";
 const hre = require("hardhat")
 
 //NFT SOL
+// async function main() {
+//   const CRED = await hre.ethers.getContractFactory("Credential")
+//   console.log("deploying...")
+//   const CREDDeployed = await CRED.deploy();
+//   console.log("line 10",CREDDeployed.address)
+//   await CREDDeployed.deployed();
+//   console.log("The latest contract was deployed", CREDDeployed.address)
+// }
+
 async function main() {
-  const CRED = await hre.ethers.getContractFactory("Credential")
+  const Post = await hre.ethers.getContractFactory("Post")
   console.log("deploying...")
-  const CREDDeployed = await CRED.deploy();
-  console.log("line 10",CREDDeployed.address)
-  await CREDDeployed.deployed();
-  console.log("The latest contract was deployed to Goerli ETH", CREDDeployed.address)
+  const PostDeployed = await Post.deploy();
+  console.log("line 10",PostDeployed.address)
+  await PostDeployed.deployed();
+  console.log("The latest contract was deployed", PostDeployed.address)
 }
 
 //GENERAL
