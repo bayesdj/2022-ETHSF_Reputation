@@ -4,10 +4,12 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
+// import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Receiver.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Post is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
+contract Work is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     using Counters for Counters.Counter;
 
     enum Status{ UNRATED, GOOD, BAD }
@@ -17,19 +19,28 @@ contract Post is ERC721, ERC721URIStorage, ERC721Burnable, Ownable {
     mapping(uint => uint) public ncount;
     mapping(address => bool) public voteStatus;
     address[] public whitelist;
-    
+    // address public tokenAddress;    
+    IERC20 public paymentToken;
+    uint public multiplier;
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("Post", "POST") {}
+    constructor() ERC721("Work", "wrk") {
+        multiplier = 1e15;
+    }
 
-    function safeMint(address to, string memory uri) public onlyOwner {
-    // function safeMint(address to) public onlyOwner {
+    // function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint(address to) public onlyOwner {
+
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, uri);
+        // _setTokenURI(tokenId, uri);
         smap[tokenId] = Status.UNRATED;
+        paymentToken = IERC20(0xd9145CCE52D386f254917e481eB44e9943F39138);
+        // paymentToken.approve(msg.sender, 1e18);
+        // user has to approve first
+        paymentToken.transferFrom(to, address(this), 10);
     }
 
     function adjWhiteList(address[] memory _whitelist) public onlyOwner {
